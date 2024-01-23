@@ -1,5 +1,5 @@
 import { HStack, Image } from "@chakra-ui/react";
-import logo from "../../assets/game-hub-logo.png";
+import logo from "assets/game-hub-logo.png";
 
 const Navbar = () => {
   return (
