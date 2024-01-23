@@ -13,13 +13,9 @@ function App() {
         <Navbar />
       </GridItem>
       <Show above="lg">
-        <GridItem area={"aside"} bg="green.300">
-          Aside
-        </GridItem>
+        <GridItem area={"aside"}>Aside</GridItem>
       </Show>
-      <GridItem area={"main"} bg="blue.300">
-        Main
-      </GridItem>
+      <GridItem area={"main"}>Main</GridItem>
     </Grid>
   );
 }
