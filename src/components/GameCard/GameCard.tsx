@@ -22,6 +22,7 @@ const GameCard = ({ game }: GameCardProps) => {
       borderRadius={10}
       overflow="hidden"
       bg={colorMode === "light" ? "gray.400" : ""}
+      width={"320px"}
     >
       <Image src={croppedImageUrl(game.background_image)} />
       <CardBody>

@@ -16,7 +16,7 @@ function App() {
       <Show above="lg">
         <GridItem area={"aside"}>Aside</GridItem>
       </Show>
-      <GridItem area={"main"}>
+      <GridItem area={"main"} flexGrow={1}>
         <GameGrid />
       </GridItem>
     </Grid>
