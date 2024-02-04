@@ -22,7 +22,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
       {genres.map((genre) => (
         <ListItem
           key={genre.id}
-          p={"5px 10px"}
+          p={"6px 10px"}
           bg={selectedGenre?.id === genre.id ? "blue.300" : ""}
           borderRadius="12px"
         >
