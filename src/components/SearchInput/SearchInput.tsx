@@ -22,7 +22,7 @@ const SearchInput = ({ onSearchGame }: Props) => {
     }
   };
   return (
-    <form onSubmit={handleSearchSubmit}>
+    <form onSubmit={handleSearchSubmit} style={{ width: "100%" }}>
       <InputGroup>
         <InputLeftElement>
           <SearchIcon color="gray.300" />
