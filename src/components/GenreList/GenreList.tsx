@@ -19,7 +19,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
     </List>
   ) : (
     <List>
-      {genres.map((genre) => (
+      {genres?.results.map((genre) => (
         <ListItem
           key={genre.id}
           p={"6px 10px"}
