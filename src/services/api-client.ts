@@ -1,6 +1,7 @@
 import axios, { CanceledError, AxiosError, AxiosRequestConfig } from "axios";
 
 export interface FetchResponse<T> {
+  next: string | null;
   count: number;
   results: T[];
 }
