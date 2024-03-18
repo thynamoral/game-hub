@@ -25,7 +25,7 @@ const GameGrid = ({ gameQuery }: Props) => {
 
   useEffect(() => {
     if (inView) fetchNextPage();
-  }, [inView]);
+  }, [fetchNextPage, inView]);
 
   if (isError) return <Text>{isError}</Text>;
 
