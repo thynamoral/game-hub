@@ -3,6 +3,7 @@ import { gameQuery } from "App";
 import APIClient from "services/api-client";
 import { Genre } from "./useGenres";
 import { Platform } from "./usePlatforms";
+import ms from "ms";
 
 export interface Game {
   id: number;
@@ -28,7 +29,7 @@ const useGames = (gameQuery: gameQuery) => {
           page: pageParam,
         },
       }),
-    staleTime: 24 * 60 * 60 * 1000, // 24h
+    staleTime: ms("1d"), // 1 day
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
