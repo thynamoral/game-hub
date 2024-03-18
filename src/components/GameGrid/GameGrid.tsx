@@ -4,13 +4,15 @@ import { GameCard } from "components/GameCard";
 import { GameCardContainer } from "components/GameCardContainer";
 import { GameCardSkeleton } from "components/GameCardSkeleton";
 import useGames from "hooks/useGames";
-import React from "react";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface Props {
   gameQuery: gameQuery;
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
+  const { ref, inView } = useInView();
   const {
     data: games,
     isError,
@@ -20,6 +22,10 @@ const GameGrid = ({ gameQuery }: Props) => {
     hasNextPage,
   } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
+
+  useEffect(() => {
+    if (inView) fetchNextPage();
+  }, [inView]);
 
   if (isError) return <Text>{isError}</Text>;
 
@@ -39,7 +45,7 @@ const GameGrid = ({ gameQuery }: Props) => {
             ))}
       </SimpleGrid>
       {hasNextPage && (
-        <Button my="10px" onClick={() => fetchNextPage()}>
+        <Button ref={ref} my="10px" onClick={() => fetchNextPage()}>
           {isFetchingNextPage ? "Loading..." : "Load More"}
         </Button>
       )}
