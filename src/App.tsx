@@ -9,7 +9,7 @@ import { Platform } from "hooks/usePlatforms";
 import { Genre } from "hooks/useGenres";
 import { useState } from "react";
 
-// 31
+// 34
 
 export interface gameQuery {
   genre: Genre | null;
