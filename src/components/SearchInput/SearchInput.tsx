@@ -1,12 +1,10 @@
 import { SearchIcon } from "@chakra-ui/icons";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import useGameQueryStore from "store";
 
-interface Props {
-  onSearchGame: (searchQuery: string) => void;
-}
-
-const SearchInput = ({ onSearchGame }: Props) => {
+const SearchInput = () => {
+  const onSearchGame = useGameQueryStore((store) => store.onSearchGame);
   const [query, setQuery] = useState("");
   const searchRef = useRef<HTMLInputElement>(null);
   const handleSearchGames = (event: ChangeEvent<HTMLInputElement>) => {
