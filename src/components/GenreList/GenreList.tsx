@@ -2,13 +2,11 @@ import { Button, HStack, Image, List, ListItem } from "@chakra-ui/react";
 import { GenreSkeleton } from "components/GenreSkeleton";
 import useGenres from "hooks/useGenres";
 import croppedImageUrl from "services/img-url";
+import useGameQueryStore from "store";
 
-interface Props {
-  selectedGenre: number | null;
-  onSelectGenre: (genreId: number) => void;
-}
-
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = () => {
+  const onSelectGenre = useGameQueryStore((store) => store.onSelectGenre);
+  const selectedGenreId = useGameQueryStore((store) => store.gameQuery.genreId);
   const { data: genres, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   return isLoading ? (
@@ -23,7 +21,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
         <ListItem
           key={genre.id}
           p={"6px 10px"}
-          bg={selectedGenre === genre.id ? "blue.300" : ""}
+          bg={selectedGenreId === genre.id ? "blue.300" : ""}
           borderRadius="12px"
         >
           <HStack>

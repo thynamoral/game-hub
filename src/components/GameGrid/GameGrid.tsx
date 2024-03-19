@@ -1,5 +1,4 @@
 import { Button, SimpleGrid, Text } from "@chakra-ui/react";
-import { gameQuery } from "App";
 import { GameCard } from "components/GameCard";
 import { GameCardContainer } from "components/GameCardContainer";
 import { GameCardSkeleton } from "components/GameCardSkeleton";
@@ -7,11 +6,7 @@ import useGames from "hooks/useGames";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
-interface Props {
-  gameQuery: gameQuery;
-}
-
-const GameGrid = ({ gameQuery }: Props) => {
+const GameGrid = () => {
   const { ref, inView } = useInView();
   const {
     data: games,
@@ -20,7 +15,7 @@ const GameGrid = ({ gameQuery }: Props) => {
     fetchNextPage,
     isFetchingNextPage,
     hasNextPage,
-  } = useGames(gameQuery);
+  } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   useEffect(() => {

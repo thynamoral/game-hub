@@ -1,6 +1,6 @@
 import usePlatforms from "./usePlatforms";
 
-const usePlatform = (platformId: number | null) => {
+const usePlatform = (platformId?: number) => {
   const { data: platforms } = usePlatforms();
   return platforms?.results.find((platform) => platform.id === platformId);
 };
