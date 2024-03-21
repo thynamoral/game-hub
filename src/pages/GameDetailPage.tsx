@@ -6,9 +6,10 @@ const GameDetailPage = () => {
   const { id } = useParams();
   const { data: game, isLoading, error } = useGame(id!);
 
+  console.log(game);
+
   if (isLoading) return <Spinner />;
   if (error) throw new Error();
-
   return (
     <>
       <Heading>{game?.name}</Heading>

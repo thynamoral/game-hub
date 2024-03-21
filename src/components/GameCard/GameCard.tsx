@@ -8,7 +8,7 @@ import {
 import { CriticScore } from "components/CriticScore";
 import { GameCardContainer } from "components/GameCardContainer";
 import { PlatformIconList } from "components/PlatformIconList";
-import { Game } from "hooks/useGames";
+import Game from "entities/Game";
 import croppedImageUrl from "services/img-url";
 
 interface GameCardProps {
