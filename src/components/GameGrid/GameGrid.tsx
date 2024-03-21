@@ -1,10 +1,10 @@
 import { Button, SimpleGrid, Text } from "@chakra-ui/react";
 import { GameCard } from "components/GameCard";
-import { GameCardContainer } from "components/GameCardContainer";
 import { GameCardSkeleton } from "components/GameCardSkeleton";
 import useGames from "hooks/useGames";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const GameGrid = () => {
   const { ref, inView } = useInView();
@@ -32,9 +32,9 @@ const GameGrid = () => {
           : games.pages.map((page, index) => (
               <React.Fragment key={index}>
                 {page.results.map((game) => (
-                  <GameCardContainer key={game.id}>
+                  <Link key={game.id} to={`/games/${game.slug}`}>
                     <GameCard game={game} />
-                  </GameCardContainer>
+                  </Link>
                 ))}
               </React.Fragment>
             ))}
