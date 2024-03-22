@@ -10,7 +10,7 @@ const GameScreenshots = ({ gameId }: Props) => {
   if (isLoading) return null;
   if (error) throw new Error();
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={3} marginTop={5}>
       {data?.results.map((screenshot) => (
         <Image src={screenshot.image} />
       ))}
