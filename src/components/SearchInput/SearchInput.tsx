@@ -1,11 +1,14 @@
 import { SearchIcon } from "@chakra-ui/icons";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useGameQueryStore from "store";
 
 const SearchInput = () => {
-  const onSearchGame = useGameQueryStore((store) => store.onSearchGame);
   const [query, setQuery] = useState("");
+  const onSearchGame = useGameQueryStore((store) => store.onSearchGame);
+  const navigate = useNavigate();
+
   const searchRef = useRef<HTMLInputElement>(null);
   const handleSearchGames = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -18,6 +21,7 @@ const SearchInput = () => {
       const { value } = searchRef.current;
       onSearchGame(value);
     }
+    navigate("/");
   };
   return (
     <form onSubmit={handleSearchSubmit} style={{ width: "100%" }}>
