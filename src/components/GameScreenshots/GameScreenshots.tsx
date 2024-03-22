@@ -12,7 +12,7 @@ const GameScreenshots = ({ gameId }: Props) => {
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={3} marginTop={5}>
       {data?.results.map((screenshot) => (
-        <Image src={screenshot.image} />
+        <Image src={screenshot.image} key={screenshot.id} />
       ))}
     </SimpleGrid>
   );
